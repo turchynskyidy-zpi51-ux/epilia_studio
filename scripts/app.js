@@ -1,14 +1,13 @@
-const contact_us = document.querySelector("#contact");
-const target = document.querySelector("html");
-const background = document.querySelector("#form_background");
-const form = document.querySelector("#contact_form");
-contact_us.addEventListener("click",() => {
-  form.style.display = "block";
-  background.style.opacity = "0.5";
-  background.style.zIndex = "2";
-})
-background.addEventListener("click", () => {
-  form.style.display = "none";
-  background.style.opacity = "0";
-  background.style.zIndex = "-1";
-})
+const btns = document.querySelectorAll('.menu_btn');
+const sec = document.querySelectorAll('section')
+btns.forEach(btn => {
+  btn.addEventListener("click", () => {
+      sec.forEach(s => {
+        s.classList.remove('displaied')
+        if (btn.id.includes(s.id)){
+          s.classList.add('displaied')
+        }
+      });
+  })
+});
+
